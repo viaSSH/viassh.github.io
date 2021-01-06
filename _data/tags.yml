@@ -1,0 +1,8 @@
+docs:
+  name: docs
+  description: TIL - DevOps
+  cover: assets/images/mm-customizable-feature.png
+test1:
+  name: test1
+  description: TIL - AWS
+  cover: False

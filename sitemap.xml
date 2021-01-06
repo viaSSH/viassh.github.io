@@ -18,7 +18,7 @@
       {% endif %}
 
       {% if post.sitemap.priority == null %}
-          <priority>0.5</priority>
+          <priority>1</priority>
       {% else %}
         <priority>{{ post.sitemap.priority }}</priority>
       {% endif %}

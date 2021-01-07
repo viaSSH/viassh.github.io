@@ -39,6 +39,8 @@ NACL VS Security Group(보안그룹)
 traffic --> NACL | Subnet --> Security Group | Instance
 
 
+
+
 혼자 궁금한 점
 
 1. 람다에서 VPC는 어떻게 되는거지??

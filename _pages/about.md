@@ -16,11 +16,20 @@ last_modified_at: 2020-10-28T14:51:23-04:00
 toc: true
 ---
 
+<link rel="stylesheet" href="/assets/css/timesheet.css">
+<script src="/assets/js/timesheet.min.js"></script>
+
+
 Minimal Mistakes is a flexible two-column Jekyll theme. Perfect for hosting your personal site, blog, or portfolio on GitHub or self-hosting on your own server. As the name implies --- styling is purposely minimalistic to be enhanced and customized by you :smile:.
 
 {% include gallery id="layouts_gallery" caption="Examples of included layouts `splash`, `single`, and `archive`." %}
 
-[Install the Theme]({{ "/docs/quick-start-guide/" | relative_url }}){: .btn .btn--success .btn--large}
+[Show CV]({{ "/docs/quick-start-guide/" | relative_url }}){: .btn .btn--success .btn--large}
+
+
+<div id="timesheet" class="" >
+
+</div>
 
 ## Notable Features
 
@@ -75,3 +84,33 @@ For even more demo pages check the [posts archive][year-archive].
 ---
 
 Minimal Mistakes is designed, developed, and maintained by Michael Rose. Just another boring, tattooed, designer from Buffalo New York.
+
+<script>
+function ccc(){
+  alert("asd");
+}
+
+new Timesheet('timesheet', 2010, 2021, [
+['03/2010', '02/2013', '인천외국어고등학교 중국어과', 'lorem'],
+['03/2013', '06/2014', '한동대학교 컴퓨터공학과', 'ipsum'],
+['06/2014', '03/2016', '군복무 의경', 'dolor'],
+['04/2016', '02/2018', '인더코어비즈니스플랫폼 연구원', 'default'],
+['03/2018', '06/2020', '한동대학교 컴퓨터공학과', 'ipsum', 1],
+['11/2018', '12/2018', '교내 SW 경진대회 우수상', 'lorem'],
+['12/2018', '02/2019', '인더코어비즈니스플랫폼 연구원', 'default'],
+['09/2019', '06/2020', '한국금융솔루션 개발자', 'default'],
+['06/2019', '06/2020', '교내 캡스톤 경진대회 최우수상 (인공지능부문)', 'lorem'],
+['07/2020', '12/2020', '삼성 청년 SW 아카데미 (임베디드) ', 'ipsum'],
+    // ['2002', '09/2002', 'A freaking awesome time', 'lorem'],
+    // ['06/2002', '09/2003', 'Some great memories', 'ipsum'],
+    // ['2003', 'Had very bad luck'],
+    // ['10/2003', '2006', 'At least had fun', 'dolor'],
+    // ['02/2005', '05/2006', 'Enjoyed those times as well', 'ipsum'],
+    // ['07/2005', '09/2005', 'Bad luck again', 'default'],
+    // ['10/2005', '2008', 'For a long time nothing happened', 'dolor'],
+    // ['01/2008', '05/2009', 'LOST Season #4', 'lorem'],
+    // ['01/2009', '05/2009', 'LOST Season #4', 'lorem'],
+    // ['02/2010', '05/2010', 'LOST Season #5', 'lorem'],
+    // ['09/2008', '06/2010', 'FRINGE #1 & #2', 'ipsum']
+    ]);
+</script>

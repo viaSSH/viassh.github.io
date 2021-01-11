@@ -29,10 +29,13 @@ EC2 혹은 외부에서 Brute Force공격이 올 경우에 Lambda규칙과 Guard
 
 
 NACL VS Security Group(보안그룹)
-|NACL|Security Group|
-|---|---|
+
+
+| NACL | Security Group |
+| --- | --- |
 |Traffic Control in front of **subnet** | Traffic Control in front of **Instance**|
 |First Check | Second Check|
+
 
 
 **Traffic flow**

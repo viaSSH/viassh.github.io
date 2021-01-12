@@ -1,6 +1,7 @@
 ---
 permalink: /about/
 title: "About Me"
+classes: wide
 excerpt: "이거는 어디에 출력이 되는걸까"
 layouts_gallery:
   - url: /assets/images/test-img-1.png
@@ -13,9 +14,9 @@ layouts_gallery:
     image_path: /assets/images/about-project-autocar-1.png
     alt: "archive layout example"
 last_modified_at: 2021-01-12T14:51:23-04:00
-toc: true
----
 
+---
+<!-- toc: true -->
 <link rel="stylesheet" href="/assets/css/timesheet.css">
 <script src="/assets/js/timesheet.min.js"></script>
 
@@ -104,4 +105,4 @@ new Timesheet('timesheet', 2010, 2021, [
 ['07/2020', '12/2020', '삼성 청년 SW 아카데미 SSAFY (임베디드) ', 'ipsum', 1],
 ['12/2020', '12/2021', 'GS네오텍 Solution Architect Engineer', 'default', 1]
     ]);
-</script> 
+</script>

@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "AWS Serverless Infra"
-category: post
+category: AWS
 tags:
   - aws
   - serverless
@@ -26,9 +26,9 @@ AWS Serverless
 #### Static Content
 
 - AWS Cloudfront
-- AWS S3 
+- AWS S3
 
-​	
+​
 
 
 
@@ -36,9 +36,9 @@ AWS Serverless
 
 # API Gateway
 
-매서드 - 
+매서드 -
 
-리소스 - 
+리소스 -
 
 
 
@@ -52,6 +52,3 @@ AWS Serverless
 # AMI
 
 ##### 이게 뭐지 찾아봐야겠다
-
-
-

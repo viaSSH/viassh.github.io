@@ -1,26 +1,27 @@
 ---
 permalink: /about/
-title: "About"
-excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
+title: "About Me"
+excerpt: "이거는 어디에 출력이 되는걸까"
 layouts_gallery:
-  - url: /assets/images/mm-layout-splash.png
-    image_path: /assets/images/mm-layout-splash.png
+  - url: /assets/images/test-img-1.png
+    image_path: /assets/images/test-img-1.png
     alt: "splash layout example"
-  - url: /assets/images/mm-layout-single-meta.png
-    image_path: /assets/images/mm-layout-single-meta.png
+  - url: /assets/images/about-project-solarzon-1.png
+    image_path: /assets/images/about-project-solarzon-1.png
     alt: "single layout with comments and related posts"
-  - url: /assets/images/mm-layout-archive.png
-    image_path: /assets/images/mm-layout-archive.png
+  - url: /assets/images/about-project-autocar-1.png
+    image_path: /assets/images/about-project-autocar-1.png
     alt: "archive layout example"
-last_modified_at: 2020-10-28T14:51:23-04:00
+last_modified_at: 2021-01-12T14:51:23-04:00
 toc: true
 ---
 
 <link rel="stylesheet" href="/assets/css/timesheet.css">
 <script src="/assets/js/timesheet.min.js"></script>
 
+> Something will be posted. I will introduce by myself. I worked in where... experiences somethings... developed...
 
-Minimal Mistakes is a flexible two-column Jekyll theme. Perfect for hosting your personal site, blog, or portfolio on GitHub or self-hosting on your own server. As the name implies --- styling is purposely minimalistic to be enhanced and customized by you :smile:.
+이것저것 만들어보는 중.... 코딩 일기장 형식으로 여기엔 나중에 내 소개 간략하게 넣어야지. 저는 abc에 관심이 많고 defg를 해봤어요,
 
 {% include gallery id="layouts_gallery" caption="Examples of included layouts `splash`, `single`, and `archive`." %}
 

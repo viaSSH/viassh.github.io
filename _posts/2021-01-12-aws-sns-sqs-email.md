@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "AWS SNS, SQS, EMAIL"
-category: post
+category: AWS
 tags:
   - aws
   - sns
@@ -11,8 +11,14 @@ tags:
 comments: true
 ---
 
-What is AWS SNS, SQS, MQ?
+메시징 서비스 분석해보기
 =============
+
+> What is AWS SNS, SQS, MQ?
+>
+> Why we use this?
+>
+> How can I use?
 
 
 
@@ -36,7 +42,7 @@ Pub, Sub 구조
   1. 표준
      - 최소 1회 전송, 메세지 순서가 유지되지 않음
      - 최선의 정렬
-     - 처리량이 많고 
+     - 처리량이 많고
   2. FIFO
      - 선입선출 전송, 메시지 순서가 유지됨
      - 정확히 1회 처리
@@ -65,7 +71,7 @@ Pub, Sub 구조
 - 그래서 메세지의 순서가 보장되지 않고 📑📦
 - 동일한 메세지가 2번 이상 전송될 수 도 있다. 📩📩
 
-- **메세지를 수신하였을때, 동일한 메세지를 삭제한다던가, Lambda함수를 트리거할때 반복된 작업으로 문제가 생기지 않게 설계를 해야한다.**
+- **메세지를 수신하였을때, 동일한 메세지를 삭제한다던가, Lambda함수를 트리거할때 반복된 작업으로 문제가 생기지 않게 설계 해야한다.**
 
 다음 그림과 같이 테스트로 메세지 전송을 한다.
 
@@ -79,13 +85,23 @@ Pub, Sub 구조
 
 <img src="/assets/images/aws-sns-sqs-email-standard-test2.png" style="zoom:50%" />
 
+**송신 : 1 -> 2 -> 3 -> 4 -> 5**
+
+**수신 : 5 -> 1 -> 3 -> 2 -> 4**
+
 로 순서가 뒤죽박죽 섞여서 들어온다.
+
+
 
 ### 선입선출 FIFO (First In First Out) 대기열
 
 - 표준대기열의 기본적인 기능들을 다 포함하고 있음.
+
 - 순서를 보장
+
 - 하지만 초당 트랙잭션 TPS(Transactions per second)의 제한이 있다.
+
+
 
 ##### 메시지 그룹 ID
 
@@ -99,16 +115,18 @@ Pub, Sub 구조
 테스트 방식
 
 | 순서 | 본문 | 메세지 그룹 ID | 메시지 중복 제거 ID |
-| ---- | ---- | -------------- | ------------------- |
-| 1    | 1    | test-group-1   | test-1              |
-| 2    | 2    | test-group-1   | test-2              |
-| 3    | 3    | test-group-1   | test-3              |
-| 4    | 4    | test-group-1   | test-4              |
-| 5    | 5    | test-group-1   | test-5              |
+| :--- | :--- | :------------: | :-----------------: |
+| 1    | 1    |  test-group-1  |       test-1        |
+| 2    | 2    |  test-group-1  |       test-2        |
+| 3    | 3    |  test-group-1  |       test-3        |
+| 4    | 4    |  test-group-1  |       test-4        |
+| 5    | 5    |  test-group-1  |       test-5        |
 
 **송신 : 1 -> 2 -> 3 -> 4 -> 5**
 
 **수신 : 1 -> 2 -> 3 -> 4 -> 5**
+
+**순서가 보장됨**을 확인 할 수 있었다.
 
 <img src="/assets/images/aws-sns-sqs-email-fifo-test.png" style="zoom:50%" />
 
@@ -121,9 +139,9 @@ Pub, Sub 구조
 
 
 
-## SQS vs MQ 
+## SQS vs MQ
 
+MQ 는 기존의 온프레미스 환경에서 사용하던 서비스를 마이그레이션 하는 용도로 많이 사용한다고하는데, 차이점에 대해 자세히 알아봐야겠다.
 
-
-
+<!-- TODO -->
 

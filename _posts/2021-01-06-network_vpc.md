@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "Network VPC"
-category: post
+category: AWS
 tags:
   - network
   - vpc

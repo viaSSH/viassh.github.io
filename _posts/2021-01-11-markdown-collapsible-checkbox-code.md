@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "Markdown Collapsible Checkbox and Code block"
-category: post
+category: IT tips
 tags:
   - markdown
   - collapsible

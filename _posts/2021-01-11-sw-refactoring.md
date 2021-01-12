@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "AWS Lambda"
-category: post
+category: AWS
 tags:
   - sw
   - refactoring

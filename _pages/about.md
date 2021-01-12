@@ -104,4 +104,4 @@ new Timesheet('timesheet', 2010, 2021, [
 ['07/2020', '12/2020', '삼성 청년 SW 아카데미 SSAFY (임베디드) ', 'ipsum', 1],
 ['12/2020', '12/2021', 'GS네오텍 Solution Architect Engineer', 'default', 1]
     ]);
-</script>
+</script> 

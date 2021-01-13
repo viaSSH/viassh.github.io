@@ -1,8 +1,8 @@
 ---
 published: true
 layout: single
-title: "AWS Lambda"
-category: AWS
+title: "SW 리팩토링"
+category: SW
 tags:
   - sw
   - refactoring

@@ -75,6 +75,20 @@ traffic --> NACL | Subnet --> Security Group | Instance
 
 
 
+# CIDR (Classless Inter-Domain Routing)
+
+- 클래스 없는 도메인간 라우팅 기법
+
+  Ex) 10.10.0.0/16
+
+  - `/16` 이 
+
+
+
+
+
+
+
 
 혼자 궁금한 점
 

@@ -80,3 +80,4 @@ ELB 는 3가지 유형의 로드밸런서를 지원한다.
 
 - [대용량 세션을 위한 로드밸런서](https://d2.naver.com/helloworld/605418)
 
+https://m.post.naver.com/viewer/postView.nhn?volumeNo=27046347&memberNo=2521903

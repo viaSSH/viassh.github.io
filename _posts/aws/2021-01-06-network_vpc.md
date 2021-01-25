@@ -85,6 +85,14 @@ traffic --> NACL | Subnet --> Security Group | Instance
 
 
 
+#### 네트워크
+
+- A 레코드, cname
+- asd
+- 
+
+
+
 
 
 

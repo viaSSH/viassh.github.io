@@ -35,6 +35,8 @@ NACL - 네트워크 ACL (Network Access Control List)
 |Traffic Control in front of **subnet** | Traffic Control in front of **Instance**|
 |First Check | Second Check|
 |Black-list | White-list 기반 |
+|State**less** | State**ful** |
+| |  |
 
 - NACL에서 먼저 검사를 한 뒤에 인스턴스로 넘어와 보안그룹에 따라 네트워크를 제어한다
 

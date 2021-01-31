@@ -31,7 +31,7 @@ feature_row:
     alt: "Cloud Garage"
     title: "Cloud Garage"
     excerpt: "Free to use however you want under the MIT License. Clone it, fork it, customize it... whatever!"
-    url: "/docs/license/"
+    url: "/dev/garage/"
     btn_class: "btn--primary"
     btn_label: "Take more"      
 ---

@@ -1,9 +1,11 @@
 ---
+layout: splash2
+
 permalink: /dev/garage
 title: "3D Tree Dev"
 excerpt: "developing"
 classes: wide
-
+hidden: true
 author_profile: false
 
 ---
@@ -16,6 +18,11 @@ author_profile: false
 <style>
    body { margin: 0; }
    canvas { width: 60%; height: 60% }
+   #gui {
+     position: absolute;
+     top: 124px;
+     right: 50px 
+  }
 </style>
 
 <script type="text/javascript">

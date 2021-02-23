@@ -21,7 +21,7 @@ author_profile: false
    #gui {
      position: absolute;
      top: 124px;
-     right: 50px 
+     right: 50px
   }
 </style>
 
@@ -244,6 +244,8 @@ function initGui() {
         gui.add( API, 'y', -200, 200, 10 ).name( 'y' ).onChange( updateUvTransform );
         gui.add(options, 'start');
         gui.add(options, 'clear');
+        gui.domElement.id = 'gui'
+
          }
 
 </script>

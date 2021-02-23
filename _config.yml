@@ -14,9 +14,9 @@
 minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
-# locale                   : "ko-KR"
-title                    : "SSH's PAGE"
+# locale                   : "en-US"
+locale                   : "ko-KR"
+title                    : "SSH's DEV"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "SeungSooHan"
@@ -28,7 +28,7 @@ teaser                   : "/assets/images/viassh-logo.png" # path of fallback t
 logo                     : "/assets/images/viassh-logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
-words_per_minute         : 200
+words_per_minute         : 150
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:

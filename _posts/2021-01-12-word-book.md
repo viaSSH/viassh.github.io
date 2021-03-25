@@ -6,6 +6,7 @@ category: Secret
 tags:
   - word book
 comments: true
+toc: true
 toc_sticky: true
 toc_label: "Find word here"
 ---

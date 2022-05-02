@@ -151,9 +151,12 @@ $max-width: $x-large !default;
    Grid
    ========================================================================== */
 
-$right-sidebar-width-narrow: 200px !default;
-$right-sidebar-width: 300px !default;
-$right-sidebar-width-wide: 400px !default;
+// $right-sidebar-width-narrow: 200px !default;
+// $right-sidebar-width: 300px !default;
+// $right-sidebar-width-wide: 400px !default;
+$right-sidebar-width-narrow: 180px !default;
+$right-sidebar-width: 240px !default;
+$right-sidebar-width-wide: 320px !default;
 
 /*
    Other

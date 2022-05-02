@@ -20,9 +20,9 @@ last_modified_at: 2021-01-12T14:51:23-04:00
 <link rel="stylesheet" href="/assets/css/timesheet.css">
 <script src="/assets/js/timesheet.min.js"></script>
 
-> Something will be posted. I will introduce by myself. I worked in where... experiences somethings... developed...
+> Frontend, Backend, AWS, IaC, Kubernetes
 
-이것저것 만들어보는 중.... 코딩 일기장 형식으로 여기엔 나중에 내 소개 간략하게 넣어야지. 저는 abc에 관심이 많고 defg를 해봤어요,
+Developer
 
 {% include gallery id="layouts_gallery" caption="Examples of included layouts `splash`, `single`, and `archive`." %}
 
@@ -92,7 +92,7 @@ function ccc(){
   alert("asd");
 }
 
-new Timesheet('timesheet', 2010, 2021, [
+new Timesheet('timesheet', 2010, 2022, [
 ['03/2010', '02/2013', '**외국어고등학교 중국어과', 'lorem'],
 ['03/2013', '06/2014', '**대학교 컴퓨터공학과', 'ipsum'],
 ['06/2014', '03/2016', '군복무 의경', 'dolor'],
@@ -103,7 +103,7 @@ new Timesheet('timesheet', 2010, 2021, [
 ['09/2019', '06/2020', '*** 개발자', 'default', 1],
 ['06/2019', '06/2020', '교내 캡스톤 경진대회 최우수상 (자율주행 인공지능부문)', 'lorem', 1],
 ['07/2020', '12/2020', '** SW 아카데미 SSAFY (임베디드) ', 'ipsum', 1],
-['12/2020', '12/2021', '** Solution Architect Engineer', 'default', 1]
+['12/2020', '04/2022', '** Solution Architect Engineer', 'default', 1]
     ]);
 
 </script>

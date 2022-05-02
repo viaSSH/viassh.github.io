@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Seungsoo Han"
   avatar           : "/assets/images/SSH.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "생각을 현실로 구현하는 엔지니어, 불편함을 해결하기 위해 끊임없는 도전을 하는 개발자입니다."
+  bio              : "생각을 현실로 구현하는 엔지니어, 불편함을 해결하기 위해 끊임없는 도전을 하는 개발자입니다. 👨‍💻"
   location         : "South Korea"
   email            : "viassh2@gmail.com"
   links:

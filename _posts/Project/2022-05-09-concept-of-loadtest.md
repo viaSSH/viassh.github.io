@@ -8,7 +8,7 @@ tags:
   - cloudwatch
   - loadtest
 comments: true
-
+author_profile: false
 ---
 
 # Locust / CloudWatch Connector

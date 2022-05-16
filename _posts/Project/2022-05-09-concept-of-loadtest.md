@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: single
 title: "Locust와 CloudWatch 연동하기"
 category: project

@@ -6,13 +6,13 @@ header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/mm-home-page-feature.jpg
   actions:
-    - label: "<i class='fas fa-download'></i> Follow now"
+    - label: "<i class='fas fa-download'></i> Get Started"
       url: "/docs/quick-start-guide/"
 excerpt: >
-  A flexible two-column Jekyll theme. Perfect for building personal sites, blogs, and portfolios.<br />
-  <small><a href="https://github.com/mmistakes/minimal-mistakes/releases/tag/4.21.0">Latest release v4.21.0</a></small>
+  AWS 서비스 분석과 백앤드 개발<br />
+  <small>따라하기</small>
 feature_row:
-  - image_path: /assets/images/mm-customizable-feature.png
+  - image_path: /assets/images/aws-logo.png
     alt: "Study LOG"
     title: "Study LOG"
     excerpt: "development knowledge, errors, and posts on the resolution process.
@@ -27,6 +27,13 @@ feature_row:
     url: "/docs/layouts/"
     btn_class: "btn--primary"
     btn_label: "Show more"
+  - image_path: /assets/images/problem-solving.webp
+    alt: "Problem Solving"
+    title: "Problem Solving"
+    excerpt: "Free to use however you want under the MIT License. Clone it, fork it, customize it... whatever!"
+    url: "/dev/solving/"
+    btn_class: "btn--primary"
+    btn_label: "Take more"    
   - image_path: /assets/images/mm-customizable-feature.png
     alt: "Cloud Garage"
     title: "Cloud Garage"

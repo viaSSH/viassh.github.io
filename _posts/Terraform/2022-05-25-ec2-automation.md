@@ -25,6 +25,8 @@ EventBridge의 규칙에는 EC2 RebootInstances, StopInstances, TerminateInstanc
 
 ### 테라폼을 사용한 EC2 자동화 설정방법
 
+[Github 코드 주소](https://github.com/viaSSH/EC2-Save-bot)
+
 1. 테라폼 설치
 2. 테라폼을 실행할 AWS 프로파일을 가져와야한다.
    - `

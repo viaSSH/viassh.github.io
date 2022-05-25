@@ -9,7 +9,7 @@ tags:
 comments: true
 ---
 
-AWS RDS Configuration
+AWS RDS Configuration 해결
 =============
 
 
@@ -64,8 +64,9 @@ Provisioned(프로비저닝 됨) VS serverless(서버리스)
 
   [https://ssungkang.tistory.com/entry/MySQL-RDS에서-RDS로-데이터-migration](https://ssungkang.tistory.com/entry/MySQL-RDS%EC%97%90%EC%84%9C-RDS%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-migration)
 
-- 해결안됨...
 
-  - `SET @@SESSION.SQL_LOG_BIN= 0; `  에서 문제가 발생하는 듯
-  -  Sql 파일마다 SET @, SET @@로 시작하는 쿼리들을 다 지워줬더니 됨...
+
+  - `SET @@SESSION.SQL_LOG_BIN= 0; `  에서 문제가 발생
+    - 해결방안
+      -  Sql 파일마다 SET @, SET @@로 시작하는 쿼리들을 다 지워줬더니 해결되었음
 

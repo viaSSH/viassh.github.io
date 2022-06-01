@@ -40,6 +40,14 @@ VPC Flow 로깅을 활성화하면 VPC의 네트워크 트래픽에 대한 데�
         }
         ]
     }
+
+   하지만 꼭 필요하지 않은 action도 포함되어있기때문에
+    "logs:CreateLogGroup",
+    "logs:CreateLogStream",
+    "logs:PutLogEvents",
+    "logs:DescribeLogGroups",
+    "logs:DescribeLogStreams" 
+    위 action만 추가하여 사용하는것이 권장됩니다.
 ```
   하지만 신뢰관계는 role 생성 시 대부분 EC2 로 설정하여 만들기때문에 이를 변경하지 않았다면 액세스 오류가 나오게 됩니다. 
   나의 CloudWatch Log로 VPC 서비스가 API호출을 해야하기 때문에 VPC에서 호출할 수 있는 권한을 부여해야합니다.

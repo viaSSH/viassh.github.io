@@ -15,6 +15,12 @@ author_profile: false
 # VPC Flow log 란
 VPC Flow 로깅을 활성화하면 VPC의 네트워크 트래픽에 대한 데이터를 캡처하고 기록할 수 있습니다. VPC Flow 로깅은 지정된 네트워크 인터페이스로 송수신되는 IP 데이터에 대한 정보를 기록하고 이 Raw 데이터를 CloudWatch나 S3에 저장하여 검색 및 볼 수 있습니다. VPC Flow 로깅은 AWS 클라우드 환경의 보안 및 규정 준수에 매우 중요합니다.
 
+## ENI 단위별 플로우 로그 만들기
+VPC Flow log는 위에서 설명한 것처럼 네트워크 트래픽을 수집하고 분석에 필요한 로그를 제공하는 기능입니다. 기존 네트워크 분석 시에 tcpdump로 패킷을 덤프하고 와이어샤크로 분석하는데 AWS환경에서는 접근할 수 있는 서비스에 제한이 있어서 이를 지원해주기위해 VPC Flow log 가 사용됩니다.
+
+단순히 ALB에서의 패킷정보나 EC2, RDS만의 플로우 로그를 확인하고 싶을때 ENI 단위별로 Flow log를 생성하여 분석할 수 있습니다. VPC 서비스에서 안보여서 지원하지 않는 기능인가라고 생각할 수 있지만 이는 `EC2 서비스 -> 네트워크 및 보안 -> 네트워크 인터페이스` 에서 특정 ENI를 선택 후 플로우 로그 탭에서 개별적으로 설정할 수 있습니다.
+![each-eni](../../assets/images/post/vpc-flow-log/each-eni.png)
+
 ## 설정 시 오류 사항들
 액세스 오류. 로그 대상에 액세스할 수 없습니다 (Access error. The log destination is not accessible.) 이라고 나오며 CloudWatch log에 저장이 안되는 경우
 ![error](../../assets/images/post/vpc-flow-log/error1.png)

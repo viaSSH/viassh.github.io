@@ -13,10 +13,11 @@ author_profile: false
 ---
 
 
-## EC2 자동 시작 정지 구현하기 (with Terraform)
+EC2 자동 시작 정지 구현하기 (with Terraform)
+=============
 
-### EventBridge + Lambda 를 사용한 자동화
-
+> EventBridge + Lambda 를 사용한 자동화
+>
 > 특정 시간에 EC2 인스턴스를 자동으로 끄고 키는 서비스를 간단하게 구현
 
 EventBridge의 규칙에는 EC2 RebootInstances, StopInstances, TerminateInstances API를 호출할 수 있는 기능은 있지만 Start 하는 기능은 없습니다. 이를 따로 Lambda에서 구현하여 사용하지 않는 시간대인 밤 시간대에는 자동으로 꺼지게 하고 아침에는 자동으로 켜지게 하여 인스턴스 비용을 줄일 수 있는 방법을 테라폼으로 간단하게 구현할 수 있습니다.

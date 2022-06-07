@@ -9,6 +9,8 @@ tags:
   - sqs
   - email
 comments: true
+author_profile: false
+
 ---
 
 메시징 서비스 분석해보기

@@ -8,6 +8,8 @@ tags:
   - EC2
   - Terraform
 comments: true
+author_profile: false
+
 ---
 
 

@@ -100,8 +100,9 @@ CloudWatch에 보낸 메트릭을 EC2 메트릭과 ALB메트릭을 Cloudwatch �
 # 비용 
 
 서울리전 기준
-| **API** | **Price** |
-| ------ | ------ |
-| GetMetricData, GetInsightRuleReport | 요청된 지표 1,000개당 0.01 USD |
-| GetMetricWidgetImage | 요청된 지표 1,000개당 0.02 USD |
-| GetMetricStatistics, ListMetrics, <span style="color:lightgreen">**PutMetricData** </span>, GetDashboard, ListDashboards, PutDashboard 및 DeleteDashboards 요청 | 요청 1,000개당 0.01 USD |
+
+| **API** | **Price** | |
+| ------ | ------ | ----- |
+| GetMetricData, GetInsightRuleReport | 요청된 지표 1,000개당 0.01 USD | |
+| GetMetricWidgetImage | 요청된 지표 1,000개당 0.02 USD |  |
+| GetMetricStatistics, ListMetrics, <span style="color:lightgreen">**PutMetricData** </span>, GetDashboard, ListDashboards, PutDashboard 및 DeleteDashboards 요청 | 요청 1,000개당 0.01 USD |  |

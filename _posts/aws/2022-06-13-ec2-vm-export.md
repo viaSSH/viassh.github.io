@@ -8,6 +8,7 @@ tags:
   - migration
 comments: true
 author_profile: false
+
 ---
 
 VM Export 를 사용해서 이미지 내보내기
@@ -17,7 +18,14 @@ EC2 VM Import, Export 는 콘솔에서는 작업이 안되며 **AWS CLI**를 사
 
 EC2에서 사용하고 있는 모든 이미지를 지원하는 것이 아닌 일부의 AMI에서만 VM Export 기능을 사용할 수 있으니 확인해야 한다.
 
-외부에서 터미널 연결을 하고있다면 잠시 끊기게된다.
+EC2에서 운영중인 모든 운영체제를 외부로 뺄 수 있는게 아니라 공식문서에서 나열된 일부 운영체제만 가져오기와 내보내기 기능을 지원하고 있다.
+
+- Microsoft Window Server 2008,2012, Window 7,8,8.1,10 등
+- Amazon Linux 2
+- CentOS, Bebian, Fedora, RHEL 일부버전, Ubuntu 12.04, ... 18.04, 20.04 등
+
+
+
 
 ## 인스턴스 VM 내보내기 하는 방법
 
@@ -44,6 +52,7 @@ EC2에서 사용하고 있는 모든 이미지를 지원하는 것이 아닌 일
     - ec2 관련 권한이 없다면 실행 가능한 프로파일로 변경하여 진행
     - ex) `aws ec2 create-instance-export-task --instance-id i-00947d57800000000 --target-environment vmware --export-to-s3-task file://config.json --profile admin --region ap-northeast-2`
 
+- 해당 명령어를 입력하여 작업이 시작되면 해당 인스턴스의 터미널 연결이 잠시 끊기게된다. 수분 정도 였던거같음.
 
 ## 에러 해결
 

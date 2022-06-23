@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title: "AWS Lambda function url 활용 가이드"
+title: "Lambda function url을 활용한 python S3 post 전송"
 category: AWS
 tags:
   - aws

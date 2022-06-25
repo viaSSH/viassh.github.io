@@ -83,7 +83,7 @@ Lambda 함수를 생성 초기에 아래 고급 버튼? 을 눌러 함수 URL �
 
 인증 유형에는 AWS_IAM, NONE 두 가지를 선택할 수 있는데, 이는 바로 위에 웹훅 이야기를 하면서 JWT, AWS Sig4, Cors, IAM user, role 등을 사용한 방법을 알아볼 것이다.
 
-![lambda-enable](../../_site/assets/images/post/lambda-function-url/lambda-function-url-enable.png)
+![lambda-enable](../../assets/images/post/lambda-function-url/lambda-function-url-enable.png)
 
 생성하면 https://thisisawsuniquesampleurl.lambda-url.ap-northeast-2.on.aws/ 이와 같은 엔드포인트가 만들어 질 것이다. 활성화 했다가 삭제하고 다시 만들면 URL 이 바뀌게 되니 조심..
 
@@ -153,7 +153,7 @@ Lambda의 기본 제한 시간인 3초를 넘겨서 실행 되기도 하기때�
 
 
 람다의 Cloudwatch 로그를 까보면 아래와 같이 바이너리 값이 들어있다. 
-![lambda-cw-log](../../_site/assets/images/post/lambda-function-url/lambda-cw-log.png)
+![lambda-cw-log](../../assets/images/post/lambda-function-url/lambda-cw-log.png)
 
 웹에서 post 메서드로 전송할때 multipart로 전송하기에 위와같이 알 수 없는 값들로 보이며 이를 디코딩 하는 과정이 python 코드 중 base64 디코드와 cgi.FieldStorage 부분이다.
 

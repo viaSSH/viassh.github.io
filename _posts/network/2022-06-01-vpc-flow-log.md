@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "VPC 플로우 로그 에러해결과 설정하기 with 테라폼"
-category: network
+category: Network
 tags:
   - VPC
   - log

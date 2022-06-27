@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "NAT Gateway의 연결유형에 대하여"
-category: network
+category: Network
 tags:
   - NAT
   - network

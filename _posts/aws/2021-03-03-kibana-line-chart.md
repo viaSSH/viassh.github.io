@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: single
 title: "Kibana 두 라인 그리기"
 category: Kibana

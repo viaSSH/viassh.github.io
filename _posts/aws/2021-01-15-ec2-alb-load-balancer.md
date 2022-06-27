@@ -4,7 +4,6 @@ layout: single
 title: "AWS Elastic Load Balancer"
 category: AWS
 tags:
-  - AWS
   - ALB
 comments: true
 ---

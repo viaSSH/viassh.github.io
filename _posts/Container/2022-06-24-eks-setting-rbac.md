@@ -2,7 +2,7 @@
 published: true
 layout: single
 title: "EKS 현재 사용자 또는 역할이 이 EKS cluster에 있는 Kubernetes 객체에 액세스할 수 없습니다"
-category: network
+category: Network
 tags:
   - AWS
   - EKS

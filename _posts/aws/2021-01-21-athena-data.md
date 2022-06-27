@@ -4,7 +4,6 @@ layout: single
 title: "Amazon Athena"
 category: AWS
 tags:
-  - AWS
   - Athena
   - Data
 comments: true

@@ -5,8 +5,8 @@ title: "Elastic Search와 Lambda 연동 권한"
 category: AWS
 tags:
   - Elastic search
-  - Lambda
-  - Policy
+  - lambda
+  - policy
 comments: true
 
 

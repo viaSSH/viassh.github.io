@@ -4,7 +4,6 @@ layout: single
 title: "AWS SNS, SQS, EMAIL"
 category: AWS
 tags:
-  - aws
   - sns
   - sqs
   - email

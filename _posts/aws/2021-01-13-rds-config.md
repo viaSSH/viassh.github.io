@@ -4,7 +4,6 @@ layout: single
 title: "AWS RDS configuration"
 category: AWS
 tags:
-  - AWS
   - RDS
 comments: true
 ---

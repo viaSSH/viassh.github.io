@@ -15,7 +15,9 @@ Locust 와 CloudWatch 연동하여 모니터링해보기
 =============
 > Locust에서 AWS EC2에 부하를 보낼때 EC2의 **CPU사용량**, **Network IO**과 Locust의 지표인 **RPS**(Requests per Second), **Response Times**, Number of Users 를 CloudWatch에서 바로 비교하면서 서비스를 분석할때 사용할 수 있습니다.
 
-Locust 부하테스트에서의 지표와 AWS 서비스들의 지표를 동시에 확인하고싶어 여러가지를 검색해보다가 딱히 마땅한 솔루션이 없어 python과 AWS SDK를 사용하여 CW로 로그를 전송하는 간단한 코드를 개발해보았습니다. 아래는 https://github.com/viaSSH/Locust_to_Cloudwatch 깃헙의 README 파일을 다시 적어놨습니다. 코드는 깃헙에서 확인가능합니다.
+Locust 부하테스트에서의 지표와 AWS 서비스들의 지표를 동시에 확인하고싶어 여러가지를 검색해보다가 딱히 마땅한 솔루션이 없어 python과 AWS SDK를 사용하여 CW로 로그를 전송하는 간단한 코드를 개발해보았습니다.
+
+아래는 [https://github.com/viaSSH/Locust_to_Cloudwatch] 깃헙의 README 파일을 다시 적어놨습니다. 코드는 깃헙에서 확인가능합니다.
 
 # Locust 부하테스트기
 

@@ -182,7 +182,7 @@ eksctl로 cluster와 nodegroup을 별도의 파라미터 없이 생성하게되�
 4. Github Action 설정
    - 최상위 경로에 `.github/workflows` 에 yaml 파일 생성
      - `frontend-cicd.yaml`
-     - 
+     
 ``` yaml
     name: Frontend CI / CD
 
@@ -288,11 +288,11 @@ eksctl로 cluster와 nodegroup을 별도의 파라미터 없이 생성하게되�
 
 
 
-5. Argocd에서 읽어갈 Github repo 생성
+1. Argocd에서 읽어갈 Github repo 생성
    - kustomize 파일 세팅
      - 네임스페이스 생성. `kubectl create ns cicd`
    - Github Access tokens 발급받기
-6. ArgoCD에서 5번 항목의 Github 세팅
+2. ArgoCD에서 5번 항목의 Github 세팅
    - Argo에서 repo 연결. Connect repo using https
  
 ![ecr-private](../../assets/images/post/github-eks/ecr-private.png)

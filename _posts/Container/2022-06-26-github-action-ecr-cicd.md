@@ -10,7 +10,8 @@ comments: true
 author_profile: false
 ---
 
-
+Push 한번으로 EKS에 배포까지
+===========
 
 기존 배포방식
 
@@ -31,6 +32,7 @@ CI/CD Woroflow를 자동화 할 수 있는 도구. Github repository에 push, me
 > 일반적으로는 feature 브랜치, develop 브랜치에서 master 브랜치로 PR을 날려 master에서 리뷰 후 merge를 하면 수동 혹은 자동적으로 Github Action Workflow가 돌아가도록 설계를 한다. 이번 포스팅에서는 간단히 master에 바로 push가 되면 자동적으로 workflow가 돌아가도록 세팅을 할 것이다.
 
 ![oh-github-error](../../assets/images/post/github-eks/oh-github-error.png)
+
 지금은 frontend 소스에 뭐 별게 없어 1분정도만에 빌드가 끝나는데 규모가 커지면서 빌드 시간도 오래걸려지고 저렇게 빨간색 fail이 계속뜨면 마음이 아프다. 그래서 일단 소규모로 파이프라인을 잡아두고 소스단은 나중에 붙이면서 틀을 잡아가는걸 선호한다.
 
 => Docker buildx 를 추가하고 `docker/build-push-action` 헐때 cache-from, cache-to를 사용해 빌드 캐쉬를 사용할 수 있다!
@@ -180,105 +182,106 @@ eksctl로 cluster와 nodegroup을 별도의 파라미터 없이 생성하게되�
 4. Github Action 설정
    - 최상위 경로에 `.github/workflows` 에 yaml 파일 생성
      - `frontend-cicd.yaml`
-```yaml
-name: Frontend CI / CD
+     - 
+``` yaml
+    name: Frontend CI / CD
 
-# master 브랜치에 push 되면 workflow 작동
-on:
-  push:
-    branches:
-      - "master"
+    # master 브랜치에 push 되면 workflow 작동
+    on:
+      push:
+        branches:
+          - "master"
 
-# 수동으로 workflow 실행 실행시킬때
-# on:
-#   workflow_dispatch:
-#     inputs:
-#       logLevel:
-#         description: 'Log level'
-#         required: true
-#         default: 'warning'
+    # 수동으로 workflow 실행 실행시킬때
+    # on:
+    #   workflow_dispatch:
+    #     inputs:
+    #       logLevel:
+    #         description: 'Log level'
+    #         required: true
+    #         default: 'warning'
 
-# workflow 내에서 사용할 변수 값 저장
-env:
-  AWS_REGION: ap-northeast-2                   
-  ECR_REPOSITORY: "cicd-front"           
-  
-# permissions:
-#   contents: read
+    # workflow 내에서 사용할 변수 값 저장
+    env:
+      AWS_REGION: ap-northeast-2                   
+      ECR_REPOSITORY: "cicd-front"           
+      
+    # permissions:
+    #   contents: read
 
-jobs:
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest # 어떤 os 에서 실행시킬지
-    environment: production
+    jobs:
+      deploy:
+        name: Deploy
+        runs-on: ubuntu-latest # 어떤 os 에서 실행시킬지
+        environment: production
 
-    steps:
-    # Github에 저장된 코드를 CI 서버로 내려받아 뒷 step에서 사용할 수 있도록 하는 과정
-    - name: Checkout
-      uses: actions/checkout@v3 
+        steps:
+        # Github에 저장된 코드를 CI 서버로 내려받아 뒷 step에서 사용할 수 있도록 하는 과정
+        - name: Checkout
+          uses: actions/checkout@v3 
 
-    # Github Secret과 local env 에 저장된 값 불러오기
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+        # Github Secret과 local env 에 저장된 값 불러오기
+        - name: Configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ env.AWS_REGION }}
 
-    # access key와 secret를 사용하여 ECR에 push할 수 있도록 인증
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
-    # Github action console에서는 아래와 같이 ***로 암호화돼서 보이게된다. 잘못들어간 값이 아님.  
-    # AWS_ACCESS_KEY_ID: ***
-    # AWS_SECRET_ACCESS_KEY: ***
-    # ***.dkr.ecr.ap-northeast-2.amazonaws.com 의 ***도 마찬가지
+        # access key와 secret를 사용하여 ECR에 push할 수 있도록 인증
+        - name: Login to Amazon ECR
+          id: login-ecr
+          uses: aws-actions/amazon-ecr-login@v1
+        # Github action console에서는 아래와 같이 ***로 암호화돼서 보이게된다. 잘못들어간 값이 아님.  
+        # AWS_ACCESS_KEY_ID: ***
+        # AWS_SECRET_ACCESS_KEY: ***
+        # ***.dkr.ecr.ap-northeast-2.amazonaws.com 의 ***도 마찬가지
 
-    # Dockerfile 을 기준으로 이미지 빌드 후 ecr로 push
-    - name: Docker Build and ECR Push
-      id: docker_build
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./Dockerfile
-        platforms: linux/amd64
-        push: true
-        tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
-      # 내부적 로직은 아래와 같음
-      # docker build -t cicd-front .
-      # docker tag cicd-front:latest 123412341234.dkr.ecr.ap-northeast-2.amazonaws.com/cicd-front:latest
-      # docker push 123412341234.dkr.ecr.ap-northeast-2.amazonaws.com/cicd-front:latest
+        # Dockerfile 을 기준으로 이미지 빌드 후 ecr로 push
+        - name: Docker Build and ECR Push
+          id: docker_build
+          uses: docker/build-push-action@v2
+          with:
+            context: .
+            file: ./Dockerfile
+            platforms: linux/amd64
+            push: true
+            tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
+          # 내부적 로직은 아래와 같음
+          # docker build -t cicd-front .
+          # docker tag cicd-front:latest 123412341234.dkr.ecr.ap-northeast-2.amazonaws.com/cicd-front:latest
+          # docker push 123412341234.dkr.ecr.ap-northeast-2.amazonaws.com/cicd-front:latest
 
-    - name: Checkout for Kustomize repository
-      uses: actions/checkout@v2
-      with:
-        # kubernetes yaml 파일 저장
-        repository: viaSSH/cicd-gitops-eks # k8s yaml 파일이 있는 repo
-        ref: frontend  # branch 이름
-        # 내 repository에 push 하기 위한 Personal Access Token이 필요
-        token: ${{ secrets.ACTION_TOKEN }} # Github Action token을 발급받아서 repo secrect에 등록해줘야한다
-        path: cicd-gitops-eks # 최상위 경로로 repository와 동일하게 설정
+        - name: Checkout for Kustomize repository
+          uses: actions/checkout@v2
+          with:
+            # kubernetes yaml 파일 저장
+            repository: viaSSH/cicd-gitops-eks # k8s yaml 파일이 있는 repo
+            ref: frontend  # branch 이름
+            # 내 repository에 push 하기 위한 Personal Access Token이 필요
+            token: ${{ secrets.ACTION_TOKEN }} # Github Action token을 발급받아서 repo secrect에 등록해줘야한다
+            path: cicd-gitops-eks # 최상위 경로로 repository와 동일하게 설정
 
-    # 새 이미지 버전으로 파일의 태그값 수정
-    # cd path 수정
-    # kustomize 로 image tag 값 변경
-    - name: Update Kubernetes resources
-      run: |
-        pwd
-        cd cicd-gitops-eks/overlays/prd/ 
-        echo \${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}
-        echo \${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}:\${{ github.sha }}
-        kustomize edit set image \${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}=\${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}:\${{ github.sha }}
-        cat kustomization.yaml
+        # 새 이미지 버전으로 파일의 태그값 수정
+        # cd path 수정
+        # kustomize 로 image tag 값 변경
+        - name: Update Kubernetes resources
+          run: |
+            pwd
+            cd cicd-gitops-eks/overlays/prd/ 
+            echo \${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}
+            echo \${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}:\${{ github.sha }}
+            kustomize edit set image \${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}=\${{ steps.login-ecr.outputs.registry }}/\${{ env.ECR_REPOSITORY }}:\${{ github.sha }}
+            cat kustomization.yaml
 
-    # 수정된 kustomization.yaml 파일 commit push
-    - name: Commit minifest files
-      run: |
-        cd cicd-gitops-eks
-        git config --global user.email "hanseung0609@github.com"
-        git config --global user.name "viassh"
-        git commit -am "Update image tag ${{ github.sha }}"
-        git push -u origin frontend
+        # 수정된 kustomization.yaml 파일 commit push
+        - name: Commit minifest files
+          run: |
+            cd cicd-gitops-eks
+            git config --global user.email "hanseung0609@github.com"
+            git config --global user.name "viassh"
+            git commit -am "Update image tag ${{ github.sha }}"
+            git push -u origin frontend
 
 
 ```

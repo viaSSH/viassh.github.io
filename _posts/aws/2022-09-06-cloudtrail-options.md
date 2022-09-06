@@ -16,11 +16,15 @@ author_profile: false
 ```
 안녕하세요,
 
-Amazon S3가 AWS CloudTrail 데이터 이벤트를 확장하여 버킷 소유자가 객체 수준 권한 또는 ACL에 관계없이 모든 객체 수준 API 작업에 대한 데이터 이벤트를 수신할 수 있도록 할 것임을 알려드립니다.
+Amazon S3가 AWS CloudTrail 데이터 이벤트를 확장하여 버킷 소유자가 객체 수준 권한 또는 ACL에 관계없이 
+모든 객체 수준 API 작업에 대한 데이터 이벤트를 수신할 수 있도록 할 것임을 알려드립니다.
 
-대부분의 Amazon S3 API 작업에서 AWS CloudTrail은 요청자와 버킷 소유자 [1] 모두에게 객체 수준의 데이터 이벤트를 제공합니다. 그러나 4개의 객체 수준 API (GetObject, GetObjectACL, PutObjectACL 및 헤드 오브젝트) 의 경우 버킷 소유자 객체의 ACL (액세스 제어 목록) 을 통해 읽기 액세스 권한이 특별히 부여되지 않은 경우 CloudTrail 이벤트를 수신하지 않습니다.
+대부분의 Amazon S3 API 작업에서 AWS CloudTrail은 요청자와 버킷 소유자 [1] 모두에게 객체 수준의 데이터 이벤트를 제공합니다. 
+그러나 4개의 객체 수준 API (GetObject, GetObjectACL, PutObjectACL 및 헤드 오브젝트) 의 경우 
+버킷 소유자 객체의 ACL (액세스 제어 목록) 을 통해 읽기 액세스 권한이 특별히 부여되지 않은 경우 CloudTrail 이벤트를 수신하지 않습니다.
 
-2022년 11월 9일부터 객체 수준 권한 또는 ACL에 관계없이 모든 객체 수준 API 작업에 대한 데이터 이벤트를 버킷 소유자에게 전송하기 시작합니다. 다음 주에 모든 요청에 대해 이 기능을 점진적으로 활성화할 예정입니다.
+2022년 11월 9일부터 객체 수준 권한 또는 ACL에 관계없이 모든 객체 수준 API 작업에 대한 데이터 이벤트를 버킷 소유자에게 전송하기 시작합니다. 
+다음 주에 모든 요청에 대해 이 기능을 점진적으로 활성화할 예정입니다.
 
 질문이나 우려 사항이 있는 경우 AWS Support [2] 에 문의하십시오.
 [1] https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html

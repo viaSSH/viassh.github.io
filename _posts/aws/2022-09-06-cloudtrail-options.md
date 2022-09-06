@@ -29,18 +29,21 @@ Amazon S3가 AWS CloudTrail 데이터 이벤트를 확장하여 버킷 소유자
 
 ## 기존 방식
 > 기존에는 데이터 이벤트를 따로 활성화하지 않으면 S3 bucket 단위의 API 만 추적이 가능했다. 각 객체가 누구에 의해 호출되고 언제, 그리고 얼마나 자주 호출되는지는 알 길이 없었다. 별도로 백엔드에서 구축해놓지않은 이상.. 그래서 이를 확인하기 위해 `데이터이벤트` 를 활성화하여 버킷단위 별로 읽기, 쓰기에 대한 이벤트를 추적하고 기록할 수 있다. 
+
 ![history](../../assets/images/post/cloudtrail/event-history.png)
 오브젝트 단위 이벤트는 없다.
 
 
 ![data](../../assets/images/post/cloudtrail/data-event.png)
 
-위 처럼 S3 버킷의 데이터이벤트를 추적하기 위해 Cloudtrail 옵션을 활성화 해놓는다. 그러면 Cloudwatch logs 와 S3 에 로그가 저장된다! S3에 저장된 로그들은 S3 select로 확인해보거나 Athena로 별도로 쿼리날려서 확인해봐야하는데.. 쉽진 않다. 디버깅할때 로그파일을 다운받아서 cmd+f 로 특정 문자열을 찾아보는 편.. Athena를 잘 다루면 나중에 포스트를 올려봐야지.
+위 처럼 S3 버킷의 데이터이벤트를 추적하기 위해 Cloudtrail 옵션을 활성화 해놓는다. 그러면 Cloudwatch logs 와 S3 에 로그가 저장된다! 
+
+S3에 저장된 로그들은 S3 select로 확인해보거나 Athena로 별도로 쿼리날려서 확인해봐야하는데.. 쉽진 않다. 디버깅할때 로그파일을 다운받아서 cmd+f 로 특정 문자열을 찾아보는 편.. Athena를 잘 다루면 나중에 포스트를 올려봐야지.
 
 
 
 ## 다중 리전 추적 비활성화
-> 내 서비스들은 모두 서울 리전에 있는데 us-east ap-northeast-1 등 여러 리전들의 모든 로그들을 다 수집하는건 과하다고 생각한다. 그런데 CloudTrail의 추적을 생성한 후 다중 리전 추적을 비활성화 하려고하니 수정할 수 없었다. 이는 콘솔에서는 변경하지 못하고 cli로 변경해야한다.
+> 내 서비스들은 모두 서울 리전에 있는데 us-east, ap-northeast-1 등 여러 리전들의 모든 로그들을 다 수집하는건 과하다고 생각한다. 그런데 CloudTrail의 추적을 생성한 후 다중 리전 추적을 비활성화 하려고하니 수정할 수 없었다. 이는 콘솔에서는 변경하지 못하고 cli로 변경해야한다.
 
 * Cloudtrail의 multi region trail의 기본값은 활성화 이다.
 * 해당 기능을 끄고싶으면 `aws cloudtrail update-trail --name my-trail --no-is-multi-region-trail` 를 입력하여 해당 trail을 변경할 수 있다.
